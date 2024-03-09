@@ -58,6 +58,7 @@ Assert.assertEquals(driver.findElement(By.cssSelector("div[class='login-containe
 
 driver.findElement(By.xpath("//*[text()='Log Out']")).click();
 
+
 driver.close();
 
 

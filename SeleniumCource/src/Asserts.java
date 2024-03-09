@@ -4,7 +4,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
 
-public class Asrt {
+public class Asserts {
 
 	public static void main(String[] args) {
 		
