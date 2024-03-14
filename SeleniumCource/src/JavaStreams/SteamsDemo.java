@@ -2,7 +2,11 @@ package JavaStreams;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import org.testng.Assert;
 
 public class SteamsDemo {
 
@@ -23,6 +27,7 @@ public class SteamsDemo {
 		
 		streamFilter(st);
 		streamMap(st);
+		collect(st);
 	}
 	
 	static void streamFilter(List<String> st) {
@@ -39,7 +44,17 @@ public class SteamsDemo {
 		}
 	static void streamMap(List<String> st) {
 		st.stream().filter(s->s.length()>4).map(s->s.toUpperCase()).forEach(s->System.out.println(s));
-		
+		st.stream().filter(s->s.length()>4).map(s->s.toUpperCase()).limit(1).forEach(s->System.out.println(s));
+		st.stream().filter(s->s.length()>4).sorted().map(s->s.toUpperCase()).forEach(s->System.out.println(s));
+		Stream<String> newStream = Stream.concat(Stream.of("Shivamshar","Loki","Dinn"), st.stream());
+		//newStream.filter(s->s.contains("S")).forEach(s->System.out.println(s));
+		boolean g = newStream.anyMatch(s->s.equalsIgnoreCase("Shivam"));
+	}
+	static void collect(List<String> st) {
+		List<String> s = st.stream().filter(sn->sn.endsWith("a")).collect(Collectors.toList());
+		System.out.println(s);
+		List<Integer> a = Stream.of(1,3,2,4,5,6,9,8,3,4,5,6,7,8).distinct().sorted().collect(Collectors.toList());
+		System.out.println(a);
 	}
 }
 
