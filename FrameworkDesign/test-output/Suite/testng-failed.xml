@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="SeleFrameworkDesign.FrameworkDesign.Listeners"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="test2(failed)">
+    <classes>
+      <class name="SeleFrameworkDesign.FrameworkDesign.ErrorValidationTests">
+        <methods>
+          <include name="wrapUp"/>
+          <include name="launchApplication"/>
+          <include name="productCartCheck"/>
+        </methods>
+      </class> <!-- SeleFrameworkDesign.FrameworkDesign.ErrorValidationTests -->
+    </classes>
+  </test> <!-- test2(failed) -->
+</suite> <!-- Failed suite [Suite] -->

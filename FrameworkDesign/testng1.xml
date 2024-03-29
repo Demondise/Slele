@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests">
+	<listeners>
+		<listener class-name="SeleFrameworkDesign.FrameworkDesign.Listeners"></listener>
+	</listeners>
+	<test thread-count="2" name="Test">
+		<classes>
+			<class name="SeleFrameworkDesign.FrameworkDesign.SubmitOrderTest" />
+		</classes>
+	</test>
+	<test name="test2" thread-count="2">
+		<classes>
+			<class
+				name="SeleFrameworkDesign.FrameworkDesign.ErrorValidationTests" />
+		</classes>
+	</test> 
+	<!--
+	Test -->
+</suite> <!--
+Suite -->
