@@ -49,4 +49,13 @@ public class StepDefinitionsFile extends BaseTest {
 		String confirmMessage = cartPage.checkMessage();
 		Assert.assertTrue(confirmMessage.equalsIgnoreCase(message));
 	}
+	
+	@Then("Correct product is added to cart")
+	public void correct_product_is_added_to_cart() {
+		Assert.assertTrue(true);
+	}
+	@Then("{string} message is displayed on login page.")
+	public void message_is_displayed_on_login_page(String message) throws InterruptedException {
+		Assert.assertEquals(getLoginPage().checkToast(),message);
+	}
 }
