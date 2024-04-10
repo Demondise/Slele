@@ -22,15 +22,19 @@ public class SearchResultsPage extends AbstractComponents {
 	@FindBy(css = "div[class*='card']")
 	List<WebElement> searchResults;
 	By addtocart = By.tagName("button");
+	By productTitle = By.cssSelector("span[Class*=a-text-normal]");
 	
 	
-	public void addProductToCart(String ProductName) {
+	public String addProductToCart(String ProductName) {
 		WebElement product = searchResults.stream().filter(s->s.findElement(By.tagName("h2")).getText().toLowerCase().contains(ProductName)).findFirst().get();
-		actionsFW.moveToElement(product.findElement(addtocart));
+		//actionsFW.moveToElement(product.findElement(addtocart));
+		String prodName = product.findElement(productTitle).getText();
 		product.findElement(addtocart).click();
-		//js.executeScript("document.querySelector('.tableFixHead').scrollTop=500");
-		product.findElement(addtocart).click();
-		wait.until(ExpectedConditions.elementToBeClickable(product.findElement(addtocart)));
+//		//js.executeScript("document.querySelector('.tableFixHead').scrollTop=500");
+//		product.findElement(addtocart).click();
+    	wait.until(ExpectedConditions.elementToBeClickable(product.findElement(addtocart)));
+    	System.out.println(prodName);
+    	return prodName;
 		
 	}
 	public CartPage goToCartPage() {
