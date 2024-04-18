@@ -1,6 +1,7 @@
 package PageFactoryClasses;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -23,9 +24,12 @@ public class SearchResultsPage extends AbstractComponents {
 	List<WebElement> searchResults;
 	By addtocart = By.tagName("button");
 	By productTitle = By.cssSelector("span[Class*=a-text-normal]");
+	@FindBy(css ="div[id*='s-refinements'] li")
+	List<WebElement> filterBy;
 	
 	
 	public String addProductToCart(String ProductName) {
+		wait.until(ExpectedConditions.visibilityOfAllElements(searchResults));
 		WebElement product = searchResults.stream().filter(s->s.findElement(By.tagName("h2")).getText().toLowerCase().contains(ProductName)).findFirst().get();
 		//actionsFW.moveToElement(product.findElement(addtocart));
 		String prodName = product.findElement(productTitle).getText();
@@ -33,7 +37,6 @@ public class SearchResultsPage extends AbstractComponents {
 //		//js.executeScript("document.querySelector('.tableFixHead').scrollTop=500");
 //		product.findElement(addtocart).click();
     	wait.until(ExpectedConditions.elementToBeClickable(product.findElement(addtocart)));
-    	System.out.println(prodName);
     	return prodName;
 		
 	}
@@ -42,5 +45,9 @@ public class SearchResultsPage extends AbstractComponents {
 		cartButton.click();
 		CartPage cartPage = new CartPage(driver);
 		return cartPage;
+	}
+	public void filterItem(String filter) {
+	 WebElement filterSelected = filterBy.stream().filter(s->s.getText().contains(filter)).findFirst().orElse(null);
+	 filterSelected.click();
 	}
 }

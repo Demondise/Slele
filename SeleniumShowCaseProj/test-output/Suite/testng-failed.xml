@@ -5,11 +5,14 @@
     <listener class-name="frameWorkComponents.Listeners"/>
   </listeners>
   <test thread-count="5" name="regression(failed)">
+    <parameter name="pincode" value="201005"/>
+    <parameter name="password" value="Shivam@123"/>
+    <parameter name="email" value="shivamtest9899@gmail.com"/>
     <classes>
       <class name="PageFactoryClasses.TestCases">
         <methods>
           <include name="loadSite"/>
-          <include name="addtocartTest"/>
+          <include name="addtocartWithFilter" invocation-numbers="1 2"/>
           <include name="wrapUp"/>
         </methods>
       </class> <!-- PageFactoryClasses.TestCases -->

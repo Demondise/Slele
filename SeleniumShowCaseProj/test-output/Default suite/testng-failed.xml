@@ -6,7 +6,7 @@
       <class name="PageFactoryClasses.TestCases">
         <methods>
           <include name="loadSite"/>
-          <include name="addtocartTest"/>
+          <include name="addtocartWithFilter" invocation-numbers="0 1 2"/>
           <include name="wrapUp"/>
         </methods>
       </class> <!-- PageFactoryClasses.TestCases -->

@@ -25,7 +25,7 @@ public class CartPage extends AbstractComponents{
 	List<WebElement> cartProducts;
 	public boolean cartProductMatch(String productName) {
 		wait.until(ExpectedConditions.visibilityOfAllElements(cartProducts));
-		boolean match = cartProducts.stream().anyMatch(s->s.getText().equalsIgnoreCase(productName));
+		boolean match = cartProducts.stream().anyMatch(s->productName.contains(s.getText().replaceAll("…","")));
 		
 		return match;
 	}

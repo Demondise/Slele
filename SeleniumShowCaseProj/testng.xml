@@ -5,9 +5,16 @@
 		<listener class-name="frameWorkComponents.Listeners"></listener>
 	</listeners>
   <test thread-count="5" name="regression">
+	  <parameter name="email" value="shivamtest9899@gmail.com"></parameter>
+	  <parameter name="password" value="Shivam@123"></parameter>
+	  <parameter name="pincode" value="201005"></parameter>
 	  <classes>
 		  
-		  <class name="PageFactoryClasses.TestCases"/>
+		  <class name="PageFactoryClasses.TestCases">
+			  <methods>
+				  <include name="addtocartWithFilter"></include>
+			  </methods>
+		  </class>
 	  </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

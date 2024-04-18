@@ -11,7 +11,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class Listeners implements ITestListener {
+public class Listeners implements ITestListener, FrameworkUtils{
 	  ExtentTest test;
 	  ExtentReports extent = ExtentReportFramework.getExtentReports();
 	  ThreadLocal<ExtentTest> extenTest = new ThreadLocal<ExtentTest>();
@@ -32,7 +32,7 @@ public class Listeners implements ITestListener {
 			e.printStackTrace();
 		}
 	    try {
-			extenTest.get().addScreenCaptureFromPath(AbstractComponents.getscreenshot(driver,result.getMethod().getMethodName()));
+			extenTest.get().addScreenCaptureFromPath(getscreenshot(driver,result.getMethod().getMethodName()));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

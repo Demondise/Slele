@@ -48,10 +48,10 @@ public class LoginPage extends AbstractComponents{
 		passwordInput.sendKeys(password);
 		rememberMe.click();
 		submitButton.click();
-		if(driver.getCurrentUrl().contains("/ap/cvf/request")) {
-			captcha.sendKeys(new Scanner(System.in).next());
-			continueCaptcha.click();
-		}
+//		if(driver.getCurrentUrl().contains("/ap/cvf/request")) {
+//			captcha.sendKeys(new Scanner(System.in).next());
+//			continueCaptcha.click();
+//		}
 		HomePage homepage =  new HomePage(driver);
 		return homepage;
 	}

@@ -29,43 +29,49 @@ public class BaseTest {
 
 	void initialiseDriver() throws IOException {
 		prop = new Properties();
-		FileInputStream propFile = new FileInputStream(System.getProperty("user.dir") + "\\resources\\setupProp.properties");
+		FileInputStream propFile = new FileInputStream(
+				System.getProperty("user.dir") + "\\resources\\setupProp.properties");
 		prop.load(propFile);
-		String browser = System.getProperty("browser")!=null?System.getProperty("browser"):prop.getProperty("browser");
-		if(browser.contains("chrome")) {
+		String browser = System.getProperty("browser") != null ? System.getProperty("browser")
+				: prop.getProperty("browser");
+		if (browser.contains("chrome")) {
 			ChromeOptions options = new ChromeOptions();
-			if(browser.contains("headless"))
-			options.addArguments("headless");
+			if (browser.contains("headless"))
+				options.addArguments("headless");
 			driver = new ChromeDriver(options);
-			driver.manage().window().setSize(new Dimension(1440,900));
-		}else if(browser.contains("edge")) {
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+			driver.manage().window().setSize(new Dimension(1440, 900));
+		} else if (browser.contains("edge")) {
 			EdgeOptions options = new EdgeOptions();
-			if(browser.contains("headless"))
-			options.addArguments("headless");
+			if (browser.contains("headless"))
+				options.addArguments("headless");
 			driver = new EdgeDriver(options);
-			driver.manage().window().setSize(new Dimension(1440,900));
-		}else if(browser.contains("firefox")) {
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+			driver.manage().window().setSize(new Dimension(1440, 900));
+		} else if (browser.contains("firefox")) {
 			FirefoxOptions options = new FirefoxOptions();
-			if(browser.contains("headless"))
-			options.addArguments("headless");
+			if (browser.contains("headless"))
+				options.addArguments("headless");
 			driver = new FirefoxDriver(options);
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-			
-			driver.manage().window().setSize(new Dimension(1440,900));
+
+			driver.manage().window().setSize(new Dimension(1440, 900));
 		}
 	}
-	
+
 	@BeforeMethod(alwaysRun = true)
-	
+
 	public void loadSite() throws IOException {
 		initialiseDriver();
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
 		loginpage = new LoginPage(driver);
 	}
-	
+
 	@AfterMethod(alwaysRun = true)
-	
+
 	public void wrapUp() {
 		driver.close();
 	}

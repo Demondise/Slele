@@ -27,16 +27,15 @@ public class AbstractComponents {
 	}
 	@FindBy(css= "div[id*='nav-tools'] div[id*='nav-cart-count-container']")
 	protected WebElement cartButton;
+	@FindBy(css = "#nav-global-location-popover-link")
+	protected WebElement locationUpdater;
+	@FindBy(css = "#GLUXZipUpdateInput")
+	protected WebElement locationInp;
+	@FindBy(css = "#GLUXZipUpdate")
+	protected WebElement updateBttn;
+	@FindBy(css = "#glow-ingress-line2")
+	protected WebElement location;
 	
-	static public String getscreenshot(WebDriver driver1, String methodName) throws IOException {
-		TakesScreenshot ts =  (TakesScreenshot)driver1;
-		 File source = ts.getScreenshotAs(OutputType.FILE);
-		 File file = new File("C:\\Users\\shivam_shar\\git\\Slele\\SeleniumShowCaseProj\\TestReports\\"+methodName+".png");
-		 FileUtils.copyFile(source, file);
-		 return "C:\\Users\\shivam_shar\\git\\Slele\\SeleniumShowCaseProj\\TestReports\\"+methodName+".png";
-		// TODO Auto-generated method stub
-
-	}
-	
+		
 	
 }
