@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-04-17T14:36:36 IST" name="Default suite" finished-at="2024-04-17T14:36:39 IST" duration-ms="3442">
+    <groups>
+    </groups>
+    <test started-at="2024-04-17T14:36:36 IST" name="Default test" finished-at="2024-04-17T14:36:39 IST" duration-ms="3442">
+      <class name="apiTest.apiTestingShiv.LibraryAPi">
+        <test-method signature="addBook()[pri:0, instance:apiTest.apiTestingShiv.LibraryAPi@3646a422]" started-at="2024-04-17T14:36:36 IST" name="addBook" finished-at="2024-04-17T14:36:39 IST" duration-ms="3165" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addBook -->
+        <test-method signature="deleteBook()[pri:0, instance:apiTest.apiTestingShiv.LibraryAPi@3646a422]" started-at="2024-04-17T14:36:39 IST" name="deleteBook" finished-at="2024-04-17T14:36:39 IST" depends-on-methods="apiTest.apiTestingShiv.LibraryAPi.addBook" duration-ms="194" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteBook -->
+      </class> <!-- apiTest.apiTestingShiv.LibraryAPi -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
