@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="apiTest.apiTestingShiv.LibraryAPi">
+      <class name="apiTest.apiTestingShiv.AuthenticationTest">
         <methods>
-          <include name="addBook"/>
-          <include name="getBookByID"/>
+          <include name="authenticationTest"/>
         </methods>
-      </class> <!-- apiTest.apiTestingShiv.LibraryAPi -->
+      </class> <!-- apiTest.apiTestingShiv.AuthenticationTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

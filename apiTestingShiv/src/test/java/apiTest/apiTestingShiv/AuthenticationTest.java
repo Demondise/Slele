@@ -1,7 +1,9 @@
 package apiTest.apiTestingShiv;
 
+import org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.PojoCachedMethodSite;
 import org.testng.annotations.Test;
 
+import POJO.CourceDetails;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
@@ -22,9 +24,12 @@ public class AuthenticationTest {
 		.extract().response().asString();
 		JsonPath js = new JsonPath(response);
 		String token = js.get("access_token");
-		given()
+	
+				
+		CourceDetails courceDetails = given()
 		.queryParam("access_token",token)
 		.when().get("https://rahulshettyacademy.com/oauthapi/getCourseDetails")
-		.then().log().all();
+		.then().extract().response().as(CourceDetails.class);
+		courceDetails.getCourses().getApi().stream().filter(s->s.getCourseTitle().contains("Rest Assured")).forEach(s->System.out.println(s.getCourseTitle()+" "+s.getPrice()));
 	}
 }
