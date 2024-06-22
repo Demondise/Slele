@@ -9,7 +9,7 @@ import io.restassured.path.json.JsonPath;
 
 import static io.restassured.RestAssured.given;
 
-public class AuthenticationTest {
+public class PojoDeserialization {
 	
 	@Test
 	public void authenticationTest() {

@@ -5,12 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import SeleFrameworkDesign.Test.BaseTest;
 import SeleFrameworkDesign.abstractComponents.AbstractComponents;
 
-public class LoginPage extends AbstractComponents{
+public class LoginPage extends BaseTest{
 	WebDriver driver ;
 	public LoginPage(WebDriver driver){
-		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -34,7 +34,6 @@ public class LoginPage extends AbstractComponents{
 		driver.get(url);
 	}
 	public String checkToast() throws InterruptedException {
-		waitForVisibilityOfElement(errorToast);
 		String errorMsg = errorToast.getText();
 		return errorMsg;
 	}

@@ -51,7 +51,7 @@ public class SubmitOrderTest extends BaseTest implements frameworkUtils {
 		Assert.assertTrue(match);
 	}
 	@DataProvider
-	public Object[][] getData() throws IOException {
+	public Object[] getData() throws IOException {
 //		HashMap<Object, Object> map1 = new HashMap<Object, Object>();
 //		map1.put("email", "anshika@gmail.com");
 //		map1.put("password", "Iamking@000");
@@ -61,6 +61,7 @@ public class SubmitOrderTest extends BaseTest implements frameworkUtils {
 //		map2.put("password", "Shivam@123");
 //		map2.put("productName", "IPHONE 13 PRO");
 		List<HashMap<String, String>> data = getDataJason();
-		return new Object[][] {{data.get(0)},{data.get(1)}};
+		Object[] dat = data.toArray();
+		return dat;
 	}
 }
