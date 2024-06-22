@@ -21,7 +21,7 @@ public class LoginCreds extends Data{
 	@Override
 	HashMap<String, String> getFilds() {
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("email", email)
+		map.put("email", email);
 		return null;
 	}
 	

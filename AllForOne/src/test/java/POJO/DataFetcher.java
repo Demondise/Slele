@@ -7,9 +7,9 @@ public class DataFetcher {
 			login = new LoginCreds();		
 		}
 	}
-	public Data getData() {
-		return data;
-	}
+//	public Data getData() {
+//		return data;
+//	}
 	
 
 }
