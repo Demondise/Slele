@@ -36,7 +36,7 @@ public class Hooks {
 		apiDi.setReq(req);
 		
 	}
-	@Before("@ui")
+	@Before("@web")
 	public void setUp(Scenario scn) {
 		DriverSingleTon manager = DriverSingleTon.getInstance();
 		di.setDriver(manager.initDriver());
@@ -45,7 +45,7 @@ public class Hooks {
 		di.setConfig(manager.getConfig());
 		di.initPageObj();
 	}
-	@After("@ui")
+	@After("@web")
 	public void wrapUp(Scenario scn) {
 		if(scn.isFailed()) {
 			di.getHomePage().getFullScreenShot();

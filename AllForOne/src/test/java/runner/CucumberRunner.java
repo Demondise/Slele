@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src\\test\\resources\\ui",
-glue = "StepDefs",
+glue = "StepDefs",tags = "@ui",
 plugin = {
 		"pretty",
 		"html:target/default-Cucumber-report.html",

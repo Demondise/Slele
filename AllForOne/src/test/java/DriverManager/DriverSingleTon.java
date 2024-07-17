@@ -23,7 +23,7 @@ public class DriverSingleTon {
 	}
     private Properties loadProperties() {
     	config = new Properties();
-		try{config.load(new FileInputStream(new File("C:\\Users\\shivam_shar\\eclipse-workspace\\AllForOne\\src\\test\\resources\\Config.properties")));}
+		try{config.load(new FileInputStream(new File("C:\\Users\\shivam_shar\\git\\Slele\\AllForOne\\src\\test\\resources\\Config.properties")));}
 		catch (Exception e) {
 			System.out.println("config file not found");
 		}

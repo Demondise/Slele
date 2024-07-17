@@ -1,12 +1,15 @@
 package abstractComponents;
 
 import java.io.File;
+import static org.openqa.selenium.support.locators.RelativeLocator.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -18,6 +21,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.internal.WebElementToJsonConverter;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.yaml.snakeyaml.events.CollectionEndEvent;
 
 import DriverManager.DriverSingleTon;
 import io.cucumber.java.Scenario;
@@ -27,7 +31,7 @@ public class Interact {
 	protected Scenario scn;
 	protected Properties config;
 	protected DriverSingleTon manager;
-	WebDriverWait w;
+	protected WebDriverWait w;
 	Actions a;
 	public Interact (Scenario scn) {
 		manager = DriverSingleTon.getInstance();
@@ -86,5 +90,12 @@ public class Interact {
 	}
 	public void checkMessage(WebElement ele,String msg) {
 		Assert.assertTrue(ele.getText().contains(msg));
+	}
+	public List<String> getElementsText(List<WebElement> eles){
+	return eles.stream().map(s->s.getText()).collect(Collectors.toList());
+	}
+	public void clickCheckBox(WebElement ele) {
+		waitForElementToBeClickable(driver.findElement(with(By.tagName("input")).near(ele)));
+		click(driver.findElement(with(By.tagName("input")).near(ele)));
 	}
 }

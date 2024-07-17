@@ -26,9 +26,9 @@ public class ApiStepDefs {
 	@Given("{string} data payload is added")
 	public void login_data_payload_is_added(String dataType) {
 	    data = new DataFetcher(dataType);
-	    if
-	    data.setEmail(di.getProp().getProperty("email"));
-	    login.setPassword(di.getProp().getProperty("password"));
+//	    if
+//	    data.setEmail(di.getProp().getProperty("email"));
+//	    login.setPassword(di.getProp().getProperty("password"));
 	}
 
 	@When("user calls {string} api with {string} http request")
@@ -36,7 +36,7 @@ public class ApiStepDefs {
 	    ApiResources apiReqs = ApiResources.valueOf(apiRes);
 	    ValidatableResponse request=null;
 	    if(httpReq.equals("post")) {
-	    	request = di.getReq().body(login).when().post(apiReqs.getResource()).then();
+//	    	request = di.getReq().body(login).when().post(apiReqs.getResource()).then();
 	    }
 	}
 

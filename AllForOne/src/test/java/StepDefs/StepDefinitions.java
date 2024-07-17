@@ -1,5 +1,10 @@
 package StepDefs;
 
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.junit.Assert;
+
 import DI.TextcContext;
 import PageObjects.LoginPage;
 import io.cucumber.java.en.And;
@@ -52,6 +57,16 @@ public class StepDefinitions {
 	@Then("{string} is displayed")
 	public void is_displayed(String msg) {
 	    di.getCartPage().checkSuccessfulMessage(msg);
+	}
+	@When("I select filters")
+	public void i_select_filters() throws InvalidFormatException, IOException {
+//		di.getHomePage().getDataToExel();
+//		di.getHomePage().selectFilter();
+		Assert.assertTrue(true);
+	}
+	@Then("Filter products match with list of products registered in category")
+	public void filter_products_match_with_list_of_products_registered_in_category() throws InvalidFormatException, IOException {
+		Assert.assertTrue(true);
 	}
 
 

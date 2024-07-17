@@ -15,8 +15,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>9</maven.compiler.source>
+		<maven.compiler.target>9</maven.compiler.target>
 	</properties>
 
 	<dependencies>
@@ -90,11 +90,33 @@
 		</dependency>
 		<!--
 		https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<!--
+		https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<!--
+		https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.17.1</version>
+			<version>2.5.5</version>
 		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.apache.httpcomponents.client5/httpclient5 -->
+		<dependency>
+			<groupId>org.apache.httpcomponents.client5</groupId>
+			<artifactId>httpclient5</artifactId>
+			<version>5.3.1</version>
+		</dependency>
+
+
+		<!--
+		https://mvnrepository.com/artifact/com.codepine.api/testrail-api-java-client -->
+		<dependency>
+			<groupId>com.codepine.api</groupId>
+			<artifactId>testrail-api-java-client</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
 	</dependencies>
 
 	<build>
@@ -120,6 +142,14 @@
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.22.1</version>
+					 <configuration>
+                <parallel>methods</parallel>
+                <threadCount>4</threadCount>
+                <includes>
+                    <include>test\java\runner\CucumberRunner.java</include>
+                </includes>
+                
+            </configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
